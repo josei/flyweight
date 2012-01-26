@@ -1,0 +1,53 @@
+Flyweight
+=========
+
+A plugin for flyweight pattern fields in models.
+
+Example
+=======
+
+  class Profile
+    flyweight :education
+    flyweight :parents_education, :with=>:educations
+  end
+  
+  en:
+    educations:
+      none: 'No education'
+      primary: 'Primary school'
+      high_school: 'High school'
+      bachelor: 'Bachelor degree'
+      graduate: 'Graduate'
+      master: 'Master'
+      mba: 'MBA'
+      doctor: 'Doctor'
+
+That's equivalent to:
+
+  class Profile
+    def self.educations_values
+      [:none, :primary, :high_school, :bachelor, :graduate, :master, :mba, :doctor ]
+    end
+  
+    validates :education, :inclusion=>{:in=>educations_values}
+    validates :parent_education, :inclusion=>{:in=>educations_values}
+    
+    def education_to_s
+      I18n::t("educations.#{education}")
+    end
+  end
+
+  en:
+    educations:
+      none: 'No education'
+      primary: 'Primary school'
+      high_school: 'High school'
+      bachelor: 'Bachelor degree'
+      graduate: 'Graduate'
+      master: 'Master'
+      mba: 'MBA'
+      doctor: 'Doctor'
+
+This makes it easy to manage a property's allowed values and i18n them. The plugin also integrates nicely with simple_form
+
+Copyright (c) 2012 José Ignacio Fernández (jose <at> traitperception.com), released under the MIT license
