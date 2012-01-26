@@ -6,6 +6,8 @@ A plugin for flyweight pattern fields in models.
 Example
 =======
 
+Suppose this code:
+
   class Profile
     flyweight :education
     flyweight :parents_education, :with=>:educations
