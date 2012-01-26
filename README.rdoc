@@ -37,6 +37,9 @@ That's equivalent to:
     def education_to_s
       I18n::t("educations.#{education}")
     end
+    def parent_education_to_s
+      I18n::t("educations.#{parent_education}")
+    end
   end
 
   en:
