@@ -1,10 +1,10 @@
-Flyweight
-=========
+= Flyweight
 
 A plugin for flyweight pattern fields in models.
 
-Example
-=======
+http://github.com/josei/flyweight
+
+== Example
 
 Suppose this code:
 
@@ -51,5 +51,7 @@ That's equivalent to:
       doctor: 'Doctor'
 
 This makes it easy to manage a property's allowed values and i18n them. The plugin also integrates nicely with simple_form
+
+== LICENSE
 
 Copyright (c) 2012 José Ignacio Fernández (jose <at> traitperception.com), released under the MIT license
